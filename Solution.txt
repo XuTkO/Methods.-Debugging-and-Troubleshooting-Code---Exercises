@@ -2,13 +2,23 @@ import java.util.Scanner;
 
 public class Demo {
     public static void main(String[] args) {
-        getName();
+    Scanner scanner = new Scanner(System.in);
+
+        int firstNumber = Integer.parseInt(scanner.nextLine());
+        int secondNumber = Integer.parseInt(scanner.nextLine());
+        int thirdNumber = Integer.parseInt(scanner.nextLine());
+
+        int resultOneAndTwo = getMaxNumber(firstNumber,secondNumber);
+        int resultTwoAndThree = getMaxNumber(resultOneAndTwo,thirdNumber);
+        System.out.println(resultTwoAndThree);
+
     }
-    
-    static void getName() {
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
-        System.out.printf("Hello, %s!",name);
+
+     static int getMaxNumber(int firstNumber, int secondNumber) {
+         if (firstNumber>secondNumber){
+             return firstNumber;
+         }
+         return secondNumber;
     }
 }
 
