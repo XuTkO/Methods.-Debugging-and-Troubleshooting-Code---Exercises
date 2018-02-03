@@ -3,21 +3,29 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int num = Integer.parseInt(scanner.nextLine());
+        long num = Long.parseLong(scanner.nextLine());
 
-        System.out.println(returnFibonacci(num));
+        isPrime(num);
+
+        if (isPrime(num)==false){
+            System.out.println("False");
+        } else {
+            System.out.println("True");
+        }
 
     }
 
-    static int returnFibonacci(int number){
-        int num1=0;
-        int num2=1;
-
-        for (int i = 0; i <= number; i++){
-            int fibonacci=num1+num2;
-            num1=num2;
-            num2=fibonacci;
+     static boolean isPrime(long num) {
+        boolean isTrue=true;
+        if(num < 2){
+            isTrue=false;
         }
-        return num1;
+        for (long i = 2; i <=Math.sqrt(num); i++){
+            if (num%i == 0) {
+                isTrue=false;
+                break;
+            }
+        }
+        return isTrue;
     }
 }
