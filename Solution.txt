@@ -1,0 +1,34 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = Integer.parseInt(scanner.nextLine());
+
+        bigInteger(number);
+    }
+
+    static void bigInteger(int number) {
+        char symbol = ' ';
+        int counter = 0;
+        BigInteger sum = new BigInteger("1");
+        for (int i = 1; i <= number; i++) {
+            sum = sum.multiply(new BigInteger(i + ""));
+        }
+        trailingZeroes(sum,symbol,counter);
+    }
+
+    static void trailingZeroes(BigInteger sum,char symbol,int counter) {
+         String digits = sum.toString();
+         for (int a = digits.length()-1; a > 0; a--) {
+             symbol = digits.charAt(a);
+             if (symbol == '0') {
+                 counter++;
+             } else {
+                 break;
+             }
+         }
+         System.out.println(counter);
+    }
+}
