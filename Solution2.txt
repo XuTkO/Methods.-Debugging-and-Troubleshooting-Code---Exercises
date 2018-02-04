@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        long firstNumber = Long.parseLong(scanner.nextLine());
+        long secondNumber = Long.parseLong(scanner.nextLine());
+
+        try {
+            if (firstNumber<secondNumber);
+            System.out.println(listPrime(firstNumber, secondNumber));
+        } catch (Exception ex){
+
+        }
+    }
+
+    static String listPrime(long firstNumber, long secondNumber) {
+        String listPrimes = "";
+        if (firstNumber<2){
+            firstNumber=2;
+        }
+        for (long i = firstNumber; i <= secondNumber; i++) {
+            for (long a = 2; a <= i; a++) {
+                if (i % a == 0 && a < i) {
+                    break;
+                } else if(i%a == 0 && a == i){
+                    listPrimes+=i + ", ";
+                    break;
+                }
+            }
+        }
+        return listPrimes.substring(0, listPrimes.length() - 2);
+    }
+}
