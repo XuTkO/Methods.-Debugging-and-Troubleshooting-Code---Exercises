@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = Integer.parseInt(scanner.nextLine());
+
+        finalNumber(number);
+
+    }
+    static void finalNumber(int number) {
+         int sumOfDigits = 0;
+         for (int i = 1; i <= number; i++) {
+             int i1=i;
+             sumOfDigits=0;
+             while (i1 > 0) {
+                 sumOfDigits += i1 % 10;
+                 i1 = i1 / 10;
+             }
+             middleNumber(sumOfDigits,i);
+         }
+    }
+
+    static void middleNumber(int sumOfDigits,int i) {
+         if (sumOfDigits % 7 == 0) {
+             int number1 = i;
+             int temp = i;
+             int reminder = 0;
+             int sumPal = 0;
+             while (number1 > 0) {
+                 reminder = number1 % 10;
+                 sumPal = (sumPal * 10) + reminder;
+                 number1 = number1 / 10;
+             }
+             firstNumber(sumPal,temp);
+         }
+    }
+
+    static void firstNumber(int a, int b) {
+         if (a == b) {
+             int oddNumber = 0;
+             while(b>0){
+                 oddNumber=b%10;
+                 if(oddNumber%2==0){
+                     System.out.println(a);
+                     break;
+                 }else if(oddNumber%2!=0){
+                     b=b/10;
+                 }
+             }
+         }
+    }
+}
