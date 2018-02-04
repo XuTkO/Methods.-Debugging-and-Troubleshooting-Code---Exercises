@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.util.stream.DoubleStream;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String figure = scanner.nextLine();
+
+
+        double area=0.0;
+
+
+        if(figure.equals("triangle")){
+            double sideTriangle = Double.parseDouble(scanner.nextLine());
+            double heightTriangle = Double.parseDouble(scanner.nextLine());
+            area = (heightTriangle*sideTriangle)/2;
+        } else if(figure.equals("square")){
+            double sideSquare = Double.parseDouble(scanner.nextLine());
+            area = sideSquare*sideSquare;
+        } else if(figure.equals("rectangle")){
+            double widthRectangle = Double.parseDouble(scanner.nextLine());
+            double heightRectangle = Double.parseDouble(scanner.nextLine());
+            area = widthRectangle*heightRectangle;
+        } else if(figure.equals("circle")) {
+            double radiusCircle = Double.parseDouble(scanner.nextLine());
+            area = Math.PI * (radiusCircle * radiusCircle);
+        }
+        System.out.printf("%.2f",area);
+    }
+}
