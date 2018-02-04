@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Main {
@@ -5,40 +6,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int number = Integer.parseInt(scanner.nextLine());
 
-
-        int sumOfDigits = 0;
-        for (int i = 1; i <= number; i++) {
-            int i1=i;
-            sumOfDigits=0;
-            while (i1 > 0) {
-                sumOfDigits += i1 % 10;
-                i1 = i1 / 10;
-            }
-            if (sumOfDigits % 7 == 0) {
-                int number1 = i;
-                int temp = i;
-                int reminder = 0;
-                int sumPal = 0;
-                while (number1 > 0) {
-                    reminder = number1 % 10;
-                    sumPal = (sumPal * 10) + reminder;
-                    number1 = number1 / 10;
-                }
-                if (sumPal == temp) {
-                    int oddNumber = 0;
-                    while(temp>0){
-                        oddNumber=temp%10;
-                        if(oddNumber%2==0){
-                            System.out.println(sumPal);
-                            break;
-                        } else if(oddNumber%2!=0){
-                            temp=temp/10;
-                        }
-
-                    }
-                    number--;
-                }
-            }
+        BigInteger sum = new BigInteger("1");
+        for (int i = 1; i <= number; i++){
+            sum = sum.multiply(new BigInteger(i+ ""));
         }
+        System.out.println(sum);
     }
 }
